@@ -23,19 +23,23 @@ public class Radio {
         if (currentVolume < 100) {
             currentVolume += 1;
             return;
+        } else {
+            return;
         }
-        if (currentVolume == 100) {
-            return;     // currentVolume = 100;
-        }
+//        if (currentVolume == 100) {
+//            return;     // currentVolume = 100;
+//        }
     }
 
     public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume -= 1;
-        }
-        if (currentVolume == 0) {
+        } else {
             return;
         }
+//        if (currentVolume == 0) {
+//            return;
+//        }
     }
 
 
