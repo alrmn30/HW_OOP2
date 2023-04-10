@@ -1,7 +1,26 @@
 package ru.netology.oopclasses;
 public class Radio {
-
     private int currentVolume;
+    private int quantityOfStations = 10;
+    private int theFirstStation;
+    private int theLastStation = quantityOfStations - 1; // ???
+    private int currentStation = theFirstStation;
+
+    public Radio() {
+    }
+
+    public Radio (int aQuantityOfStations) {
+
+//        if (aQuantityOfStations == 1) {
+//            theFirstStation = 1;
+//            theLastStation = 1;
+//        }
+//        if (aQuantityOfStations <= 0) {
+//        ???
+//        }
+        quantityOfStations = aQuantityOfStations;
+        theLastStation = quantityOfStations -1;
+    }
 
     public void setCurrentVolume(int newVolume) {
         if (newVolume < 0) {
@@ -43,15 +62,13 @@ public class Radio {
     }
 
 
-    private int currentStation;
-
     public void setCurrentStation(int newStation) {
-        if (newStation < 0) {
-            currentStation = 0;
+        if (newStation < theFirstStation) {
+            currentStation = theFirstStation;
             return;
         }
-        if (newStation > 9) {
-            currentStation = 9;
+        if (newStation > theLastStation) {
+            currentStation = theLastStation;
             return;
         }
         currentStation = newStation;
@@ -62,21 +79,31 @@ public class Radio {
     }
 
     public void setNextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
+        if (currentStation == theLastStation) {
+            currentStation = theFirstStation;
         } else {
             currentStation++;
         }
     }
 
     public void setPrevStation() {
-        if (currentStation == 0) {
-            currentStation = 9;
+        if (currentStation == theFirstStation) {
+            currentStation = theLastStation;
         } else {
             currentStation -= 1;
         }
     }
 
+    public int getQuantityOfStations() {
+        return quantityOfStations;
+    }
+
+    public int getTheFirstStation() {
+        return theFirstStation;
+    }
+    public int getTheLastStation() {
+        return theLastStation;
+    }
 
 }
 

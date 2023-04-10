@@ -1,3 +1,6 @@
 .idea/
 target/
 .iml
+Conditioner.java
+ConditionerTest.java
+notions.txt
